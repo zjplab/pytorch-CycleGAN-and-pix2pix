@@ -58,7 +58,7 @@ class GrayDataset(BaseDataset):
         AB = Image.open(AB_path).convert('RGB')
         # split AB image into A and B
         w, h = AB.size
-        A=color.red2gray(AB)
+        A=color.rgb2gray(AB)
         B=AB
         # apply the same transform to both A and B
         transform_params = get_params(self.opt, A.size)
