@@ -55,7 +55,7 @@ class GrayDataset(BaseDataset):
         """
         # read a image given a random integer index
         AB_path = self.AB_paths[index]
-        AB = Image.open(AB_path).convert('RGB')
+        AB = np.array(Image.open(AB_path).convert('RGB'))
         # split AB image into A and B
         w, h = AB.size
         A=color.rgb2gray(AB)
