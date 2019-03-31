@@ -55,11 +55,11 @@ class GrayDataset(BaseDataset):
         """
         # read a image given a random integer index
         AB_path = self.AB_paths[index]
-        AB = np.array(Image.open(AB_path).convert('RGB'))
+        AB = Image.open(AB_path).convert('RGB')
         # split AB image into A and B
         #w, h = AB.size
-        A=color.rgb2gray(AB)
-        B=AB
+        A=color.rgb2gray(np.array(AB))
+        B=np.array(AB)
         # apply the same transform to both A and B
         transform_params = get_params(self.opt, A.size)
         A_transform = get_transform(self.opt, transform_params, grayscale=False)
