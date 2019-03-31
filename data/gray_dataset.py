@@ -61,7 +61,7 @@ class GrayDataset(BaseDataset):
         A=color.rgb2gray(np.array(AB))
         B=np.array(AB)
         # apply the same transform to both A and B
-        transform_params = get_params(self.opt, (w,h))s
+        transform_params = get_params(self.opt, (w,h))
         A_transform = get_transform(self.opt, transform_params, grayscale=False)
         B_transform = get_transform(self.opt, transform_params, grayscale=False)
 
