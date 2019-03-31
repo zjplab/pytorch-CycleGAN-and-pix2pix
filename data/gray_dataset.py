@@ -57,7 +57,7 @@ class GrayDataset(BaseDataset):
         AB_path = self.AB_paths[index]
         AB = np.array(Image.open(AB_path).convert('RGB'))
         # split AB image into A and B
-        w, h = AB.size
+        #w, h = AB.size
         A=color.rgb2gray(AB)
         B=AB
         # apply the same transform to both A and B
