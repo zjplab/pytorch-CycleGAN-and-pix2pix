@@ -5,10 +5,10 @@ import numpy as np
 
 
 class GrayModel(Pix2PixModel):
-    """This is a subclass of Pix2PixModel for image colorization (black & white image -> colorful images).
+    """This is a subclass of Pix2PixModel for image colorization (gray image -> colorful images).
 
     The model training requires '-dataset_model colorization' dataset.
-    It trains a pix2pix model, mapping from L channel to ab channels in Lab color space.
+    It trains a pix2pix model, mapping from 1 gray channel to RGB channals.
     By default, the colorization dataset will automatically set '--input_nc 1' and '--output_nc 3'.
     """
     @staticmethod
