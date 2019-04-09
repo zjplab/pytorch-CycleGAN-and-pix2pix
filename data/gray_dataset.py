@@ -58,8 +58,9 @@ class GrayDataset(BaseDataset):
         AB = Image.open(AB_path).convert('RGB')
         # split AB image into A and B
         w, h = AB.size
-        A=toimage(np.array(AB)@np.array([0.2125, 0.7154, 0.0721] ,mode="L")
+        A=toimage(np.array(AB)@np.array([0.2125, 0.7154, 0.0721] ,mode="L"))
         B=AB
+        
         # apply the same transform to both A and B
         transform_params = get_params(self.opt, (w,h))
         A_transform = get_transform_one_channel(self.opt, transform_params, grayscale=False)
