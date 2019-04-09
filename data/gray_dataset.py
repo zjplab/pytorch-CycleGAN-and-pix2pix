@@ -5,7 +5,7 @@ from PIL import Image
 import numpy as np
 import torchvision.transforms as transforms
 import random
-from scipy.misc import toimage
+from util.util import toimage
 
 class GrayDataset(BaseDataset):
     """This dataset class can load a set of natural images in RGB, and convert RGB format into (L, ab) pairs in Lab color space.
