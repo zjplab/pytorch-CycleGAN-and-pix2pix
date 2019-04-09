@@ -4,7 +4,7 @@ import torch
 import numpy as np
 from PIL import Image
 import os
-
+from scipy.misc import toimage
 
 def tensor2im(input_image, imtype=np.uint8):
     """"Converts a Tensor array into a numpy image array.
@@ -58,7 +58,7 @@ def save_image(image_numpy, image_path):
         image_pil = Image.fromarray(image_numpy)
         image_pil.save(image_path)
     else: #channel==1
-        Image.fromarray(image_numpy, mode="L").save(image_path, format="L")
+        toimage(image_numpy, mode="L").save(image_path)
 
 
 def print_numpy(x, val=True, shp=False):

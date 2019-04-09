@@ -1,11 +1,11 @@
 import os.path
 from data.base_dataset import BaseDataset, get_params, get_transform, get_transform_one_channel
 from data.image_folder import make_dataset
-from skimage import color  # require skimage
 from PIL import Image
 import numpy as np
 import torchvision.transforms as transforms
 import random
+from scipy.misc import toimage
 
 class GrayDataset(BaseDataset):
     """This dataset class can load a set of natural images in RGB, and convert RGB format into (L, ab) pairs in Lab color space.
@@ -58,7 +58,7 @@ class GrayDataset(BaseDataset):
         AB = Image.open(AB_path).convert('RGB')
         # split AB image into A and B
         w, h = AB.size
-        A=Image.fromarray(color.rgb2gray(np.array(AB)), mode="L")
+        A=toimage(np.array(AB)@,mode="L")
         B=AB
         # apply the same transform to both A and B
         transform_params = get_params(self.opt, (w,h))
